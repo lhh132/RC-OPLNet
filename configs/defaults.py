@@ -1,0 +1,102 @@
+from yacs.config import CfgNode as CN
+
+###########################
+# Config definition
+###########################
+_C = CN()
+_C.OUT_DIR = "./output"
+_C.SEED = 42
+_C.USE_CUDA = True
+_C.VERBOSE = True
+_C.DROP_LAST = False
+_C.DROP_OUT = 0.0
+_C.LOG_STEP = 5
+_C.MAX_TRAIN_BATCHES = 0
+_C.MAX_EVAL_BATCHES = 0
+_C.RESUME = False
+
+###########################
+# Base
+###########################
+_C.EPOCHS = 100
+_C.LEARNING_RATE = 1e-3
+_C.BATCH_SIZE = 16
+_C.NUM_WORKERS = 4
+_C.WEIGHT_DECAY = 5e-4
+_C.MOMENTUM = 0.9
+
+###########################
+# Model
+###########################
+_C.MODEL = CN()
+_C.MODEL.NAME = ""
+_C.BACKBONE = ""
+
+###########################
+# Optimizer
+###########################
+_C.OPTIM = CN()
+_C.OPTIM.NAME = ""
+
+###########################
+# Transforms
+###########################
+_C.TRANSFORM = CN()
+_C.TRANSFORM.NAME = []
+_C.TRANSFORM.AUGPROB = 0.5
+
+# ColorJitter (brightness, contrast, saturation, hue)
+_C.TRANSFORM.COLORJITTER_B = 1
+_C.TRANSFORM.COLORJITTER_C = 1
+_C.TRANSFORM.COLORJITTER_S = 1
+_C.TRANSFORM.COLORJITTER_H = 0.05
+
+###########################
+# Dataset
+###########################
+_C.DATASET = CN()
+_C.DATASET.ROOT = ""
+_C.DATASET.NUM_CLASSES = 0
+_C.DATASET.SOURCE_DOMAINS = ()
+_C.DATASET.TARGET_DOMAINS = ()
+_C.DATASET.SPLIT_PROFILE = "official"
+_C.DATASET.DOMAIN_CLASS_COUNTS = []
+
+###########################
+# GDRNet
+###########################
+_C.GDRNET = CN()
+_C.GDRNET.BETA = 0.5
+_C.GDRNET.TEMPERATURE = 0.1
+_C.GDRNET.SCALING_FACTOR = 4.
+_C.GDRNET.USE_JOINT_DCR = False
+_C.GDRNET.USE_HCS_DCR = False
+_C.GDRNET.USE_RC_JDCR = False
+_C.GDRNET.USE_ORDINAL_LOSS = False
+_C.GDRNET.USE_PROTO_CONTRAST = False
+_C.GDRNET.JOINT_DCR = CN()
+_C.GDRNET.JOINT_DCR.BETA = 0.999
+_C.GDRNET.JOINT_DCR.MAX_WEIGHT = 10.0
+_C.GDRNET.HCS_DCR = CN()
+_C.GDRNET.HCS_DCR.BETA = 0.999
+_C.GDRNET.HCS_DCR.TAU = 50.0
+_C.GDRNET.HCS_DCR.MIN_WEIGHT = 0.5
+_C.GDRNET.HCS_DCR.MAX_WEIGHT = 3.0
+_C.GDRNET.HCS_DCR.LAMBDA_MAX = 0.5
+_C.GDRNET.HCS_DCR.WARMUP_RATIO = 0.2
+_C.GDRNET.RC_JDCR = CN()
+_C.GDRNET.RC_JDCR.BETA = 0.999
+_C.GDRNET.RC_JDCR.TAU = 50.0
+_C.GDRNET.RC_JDCR.A_MIN = 0.5
+_C.GDRNET.RC_JDCR.RESIDUAL_CLIP_LOG = 1.3862943611198906
+_C.GDRNET.RC_JDCR.MIN_WEIGHT = 0.25
+_C.GDRNET.RC_JDCR.MAX_WEIGHT = 4.0
+_C.GDRNET.RC_JDCR.WARMUP_START_RATIO = 0.05
+_C.GDRNET.RC_JDCR.FULL_WEIGHT_RATIO = 0.20
+_C.GDRNET.ORDINAL = CN()
+_C.GDRNET.ORDINAL.WEIGHT = 1.0
+_C.GDRNET.PROTO = CN()
+_C.GDRNET.PROTO.WEIGHT = 1.0
+_C.GDRNET.PROTO.MOMENTUM = 0.9
+_C.GDRNET.PROTO.TEMPERATURE = 0.1
+

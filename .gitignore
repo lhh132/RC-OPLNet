@@ -1,0 +1,47 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Packaging and coverage outputs
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Training outputs, logs, and model artifacts
+result/
+results/
+output/
+outputs/
+runs/
+logs/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.onnx
+events.out.tfevents.*
+
+# Local datasets and generated strict splits
+GDRBench/images/
+GDRBench/masks/
+GDRBench/splits_strict/
+**/audit.json
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,11 @@
+{
+  "trainable_domains": ["APTOS", "DEEPDR", "FGADR", "IDRID", "RLDR"],
+  "target_only_domains": ["DDR", "EYEPACS"],
+  "excluded_domains": ["MESSIDOR"],
+  "notes": {
+    "DDR": "The official project uses DDR only as an ESDG evaluation domain.",
+    "EYEPACS": "The official project uses EyePACS only as an ESDG evaluation domain.",
+    "FGADR": "Imported locally from the licensed Seg-set by tools/import_fgadr.py.",
+    "MESSIDOR": "This project name refers to Messidor-2; excluded by request."
+  }
+}

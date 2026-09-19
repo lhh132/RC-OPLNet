@@ -1,0 +1,3 @@
+# Install CUDA-compatible torch and torchvision in the Conda environment first.
+# Project runtime dependencies are declared in pyproject.toml.
+-e .
